@@ -28,7 +28,17 @@ services:
   chromadb:
     image: chromadb/chroma:latest
     ports:
-      - "8000:8000"
+      - "8001:8000"
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    gpus: all
+    environment:
+      - OLLAMA_API_KEY=${OLLAMA_API_KEY}
+    volumes:
+      - ollama_data:/data
 
 volumes:
   postgres_data:
+  ollama_data:

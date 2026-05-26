@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file="../.env", extra="ignore")
 
     APP_NAME: str = "TDAI"
     DEBUG: bool = False
@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     AUTHENTIK_URL: str = ""
     AUTHENTIK_CLIENT_ID: str = ""
     AUTHENTIK_CLIENT_SECRET: str = ""
+    LLM_BASE_URL:str = "http://localhost:11434"
+    LLM_MODEL_NAME:str = "gemma4:31b-cloud"
+    LLM_API_KEY : str = ""
 
 
 settings = Settings()
