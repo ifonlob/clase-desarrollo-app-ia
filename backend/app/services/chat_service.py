@@ -10,7 +10,7 @@ async def run_chat(payload : ChatMessageRequest) -> None:
 
     message = HumanMessage(content=content)
 
-    llm = ChatOpenAI(model=settings.LLM_MODEL_NAME, temperature=1.0, llm_api_key=settings.LLM_API_KEY, base_url=settings.LLM_BASE_URL)
+    llm = ChatOpenAI(model=settings.LLM_MODEL_NAME, temperature=1.0, api_key=settings.LLM_API_KEY, base_url=settings.LLM_BASE_URL)
 
     response : AIMessage= await llm.ainvoke(input=[message])
 
